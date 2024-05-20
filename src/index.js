@@ -44,14 +44,12 @@
 
 // fetchCats();
 
+const KEY =
+  'live_rHTDikZpK6TeyKG7KsPPULvszGbkefM2L66OWPKA8kQlktY6Q7DLxTyQr2WD6IP3';
+
 const block = document.querySelector('.cat-info');
 const selectBreed = document.querySelector('.breed-select');
 const value = document.querySelector('[value="value1"]');
-
-value.textContent = 'fdfkvbwidkguh';
-
-const KEY =
-  'live_rHTDikZpK6TeyKG7KsPPULvszGbkefM2L66OWPKA8kQlktY6Q7DLxTyQr2WD6IP3';
 const url = `https://api.thecatapi.com/v1/images/search?limit=10&breed_ids=beng&api_key=${KEY}`;
 
 fetch(url)
