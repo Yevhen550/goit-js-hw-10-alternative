@@ -44,14 +44,18 @@
 
 // fetchCats();
 
-const KEY =
-  'live_rHTDikZpK6TeyKG7KsPPULvszGbkefM2L66OWPKA8kQlktY6Q7DLxTyQr2WD6IP3';
+import { fetchBreeds, fetchCatByBreed } from './cat-api';
 
-const block = document.querySelector('.cat-info');
+import SlimSelect from 'slim-select';
+
 const selectBreed = document.querySelector('.breed-select');
-const value = document.querySelector('[value="value1"]');
-const url = `https://api.thecatapi.com/v1/images/search?limit=10&breed_ids=beng&api_key=${KEY}`;
+const loader = document.querySelector('.loader');
+const error = document.querySelector('.error');
+const block = document.querySelector('.cat-info');
 
-fetch(url)
-  .then(res => res.json())
-  .then(res => (value.textContent = res));
+new SlimSelect({
+  select: selectBreed,
+});
+
+console.log(fetchBreeds());
+fetchCatByBreed();

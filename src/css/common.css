@@ -49,3 +49,8 @@
      font-size: 1em;
      color: #666;
  }
+
+ .breed-select {
+    max-width: 400px;
+    margin: auto;
+ }
