@@ -30,5 +30,8 @@ function onSelectValue(ev) {
   // ev.preventDefault();
 
   const breedId = ev.currentTarget.value;
-  fetchCatByBreed(breedId).then(data => console.log(data));
+  fetchCatByBreed(breedId).then(data => {
+    const img = data[0].url;
+    console.log(img);
+  });
 }
