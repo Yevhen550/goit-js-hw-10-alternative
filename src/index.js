@@ -30,26 +30,20 @@ function onSelectValue(ev) {
   // ev.preventDefault();
 
   const breedId = ev.currentTarget.value;
-  fetchCatByBreed(breedId)
-    .then(data => {
-      const { url, breeds } = data[0];
-      const { name, temperament, description, id } = breeds[0];
-      return `
-<div class="cat-card">
-  <img
-    src="${url}"
-    alt="${id}"
-    width="${width}"
-    height="${height}"
-    class="cat-image"
-  />
-
-  <div class="cat-details">
-    <h2 class="cat-name">${name}</h2>
-    <p class="cat-description">${description}</p>
-  </div>
+  fetchCatByBreed(breedId).then(data => {
+    const { url, breeds } = data[0];
+    const { name, temperament, description, id } = breeds[0];
+    block.innerHTML = `<div class="cat-card">
+      <img
+        src=${url}
+        class="cat-image"
+       />
+     <div class="cat-details">
+       <h2 class="cat-name">${name}</h2>
+       <p class="cat-description">${description}</p>
+       <p class="cat-temperament"><b>Temperament: </b>${temperament}</p>
+     </div>
 </div>
 `;
-    })
-    .join('');
+  });
 }
