@@ -9,6 +9,8 @@ const block = document.querySelector('.cat-info');
 
 let arrBreedId = [];
 
+// selectBreed.style.display = none;
+
 fetchBreeds()
   .then(data => {
     data.map(el => {
