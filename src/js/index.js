@@ -34,7 +34,24 @@ function onSelectValue(ev) {
   const breedId = ev.currentTarget.value;
   fetchCatByBreed(breedId).then(data => {
     const { url, breeds } = data[0];
-    const { name, temperament, description, id } = breeds[0];
+    const { name, temperament, description } = breeds[0];
+
+    //     block.insertAdjacentHTML(
+    //       'beforeend',
+    //       `<div class="cat-card">
+    //       <img
+    //         src=${url}
+    //         class="cat-image"
+    //        />
+    //      <div class="cat-details">
+    //        <h2 class="cat-name">${name}</h2>
+    //        <p class="cat-description">${description}</p>
+    //        <p class="cat-temperament"><b>Temperament: </b>${temperament}</p>
+    //      </div>
+    // </div>
+    // `
+    // );
+
     block.innerHTML = `<div class="cat-card">
       <img
         src=${url}
