@@ -9,8 +9,7 @@ const block = document.querySelector('.cat-info');
 
 let arrBreedId = [];
 
-// selectBreed.style.display = none;
-// loader.style.loader.display = block;
+loader.classList.replace('loader', 'is-hidden');
 
 fetchBreeds()
   .then(data => {
@@ -25,18 +24,22 @@ fetchBreeds()
       },
     });
   })
-  .catch(error => console.log(error));
+  .catch(error => console.error(error));
 
 selectBreed.addEventListener('change', onSelectValue);
 
 function onSelectValue(ev) {
+  loader.classList.replace('is-hidden', 'loader');
+
   const breedId = ev.currentTarget.value;
 
-  fetchCatByBreed(breedId).then(data => {
-    const { url, breeds } = data[0];
-    const { name, temperament, description } = breeds[0];
+  fetchCatByBreed(breedId)
+    .then(data => {
+      loader.classList.replace('loader', 'is-hidden');
+      const { url, breeds } = data[0];
+      const { name, temperament, description } = breeds[0];
 
-    block.innerHTML = `<div class="cat-card">
+      block.innerHTML = `<div class="cat-card">
       <img
         src=${url}
         class="cat-image"
@@ -48,5 +51,6 @@ function onSelectValue(ev) {
      </div>
 </div>
 `;
-  });
+    })
+    .catch(error => console.error(error));
 }
