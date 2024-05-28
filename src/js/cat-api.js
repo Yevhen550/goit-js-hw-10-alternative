@@ -6,25 +6,19 @@ const API_KEY =
 // axios.defaults.headers.common['x-api-key'] = API_KEY;
 
 export async function fetchBreeds() {
-  const resolve = await fetch(`${BASE_URL}/breeds?api_key=${API_KEY}`);
-  return await resolve.json();
+  const response = await fetch(`${BASE_URL}/breeds?api_key=${API_KEY}`);
+  if (!response.ok) {
+    throw new Error(response.status);
+  }
+  return await response.json();
 }
-
-// export function fetchBreeds() {
-//   return fetch(`${BASE_URL}/breeds?api_key=${API_KEY}`).then(resolve =>
-//     resolve.json()
-//   );
-// }
 
 export async function fetchCatByBreed(breedId) {
   const response = await fetch(
     `${BASE_URL}/images/search?breed_ids=${breedId}&api_key=${API_KEY}`
   );
+  if (!response.ok) {
+    throw new Error(res.status);
+  }
   return await response.json();
 }
-
-// export function fetchCatByBreed(breedId) {
-//   return fetch(
-//     `${BASE_URL}/images/search?breed_ids=${breedId}&api_key=${API_KEY}`
-//   ).then(response => response.json());
-// }

@@ -24,7 +24,7 @@ fetchBreeds()
       },
     });
   })
-  .catch(error => console.error(error));
+  .catch(error => console.log(error));
 
 selectBreed.addEventListener('change', onSelectValue);
 
@@ -52,5 +52,5 @@ function onSelectValue(ev) {
 </div>
 `;
     })
-    .catch(error => console.error(error));
+    .catch(error => console.log(error));
 }
