@@ -10,6 +10,7 @@ const block = document.querySelector('.cat-info');
 let arrBreedId = [];
 
 // selectBreed.style.display = none;
+// loader.style.loader.display = block;
 
 fetchBreeds()
   .then(data => {
@@ -30,8 +31,6 @@ selectBreed.addEventListener('change', onSelectValue);
 
 function onSelectValue(ev) {
   const breedId = ev.currentTarget.value;
-
-  loader.style.display = block;
 
   fetchCatByBreed(breedId).then(data => {
     const { url, breeds } = data[0];
