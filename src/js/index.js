@@ -1,6 +1,7 @@
 import SlimSelect from 'slim-select';
 import 'slim-select/dist/slimselect.css';
 import { fetchBreeds, fetchCatByBreed } from './cat-api';
+import Notiflix from 'notiflix';
 
 const selectBreed = document.querySelector('.breed-select');
 const loader = document.querySelector('.loader');
@@ -52,5 +53,11 @@ function onSelectValue(ev) {
 </div>
 `;
     })
-    .catch(error => console.log(error));
+    .catch(catchError);
+}
+
+function catchError() {
+  return Notiflix.Notify.failure(
+    'Oops! Something went wrong! Try reloading the page!'
+  );
 }
